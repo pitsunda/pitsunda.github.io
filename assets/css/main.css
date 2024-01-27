@@ -176,3 +176,8 @@ h3:before {
 		background-color: #12421f;
 	}
 }
+
+/* Custom class to align navbar menu to the right */
+.navbar-align-right {
+    float: right;
+}
