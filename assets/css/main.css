@@ -110,43 +110,43 @@ h3:before {
 .navbar-default .navbar-nav>li>.dropdown-menu>li>a:hover,
 	.navbar-default .navbar-nav>li>.dropdown-menu>li>a:focus {
 	color: #ffffff;
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-nav>li>.dropdown-menu>li>.divider {
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
 	.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
 	.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
 	color: #ffffff;
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover,
 	.navbar-default .navbar-nav>.active>a:focus {
 	color: #ffffff;
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover,
 	.navbar-default .navbar-nav>.open>a:focus {
 	color: #ffffff;
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-toggle {
-	border-color: #12421f;
+	border-color: #41424C;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
 	{
-	background-color: #12421f;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #ffffff;
+	background-color: #41424C;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
