@@ -218,3 +218,9 @@ h3:before {
     }
 }
 
+<!-- for hero image -->
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+}
