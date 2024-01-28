@@ -181,7 +181,10 @@ h3:before {
 .navbar-align-right {
     float: right;
 }
-/* Style for the container of the site title */
+
+
+
+/* Custom styles for the site title */
 .site-title-container {
     display: inline-block;
     vertical-align: middle;
@@ -189,7 +192,6 @@ h3:before {
     margin-top: 15px; /* Adjust as needed for alignment */
 }
 
-/* Style for the site title */
 .site-title {
     color: #fff; /* White text */
     font-size: 24px; /* Adjust size as needed */
@@ -200,10 +202,22 @@ h3:before {
 
 /* Media query for smaller screens */
 @media (max-width: 767px) {
+    .navbar-header {
+        float: none;
+    }
+
     .site-title-container {
         display: block; /* Stack title below logo on smaller screens */
         margin-top: 5px; /* Adjust as needed for alignment */
         text-align: center; /* Center the title */
+        width: 100%;
+    }
+
+    .site-title {
+        font-size: 18px; /* Smaller font size for mobile devices */
+    }
+
+    .navbar-toggle {
+        margin-top: 10px; /* Adjust toggle button position */
     }
 }
-
