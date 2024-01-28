@@ -17,7 +17,7 @@ plugins:
 
 # jekyll-paginate configuration
 paginate: 10  # Posts per page
-paginate_path: "/blog/page:num/"  # Paginate path, ensure this matches the structure of your blog URLs
+paginate_path: "/page:num/"  # Paginate path, ensure this matches the structure of your blog URLs
 
 exclude:
   - Gemfile
