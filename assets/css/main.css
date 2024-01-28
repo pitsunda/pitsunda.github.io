@@ -220,7 +220,15 @@ h3:before {
 
 <!-- for hero image -->
 
+/* Existing CSS */
 .full-width-image {
     width: 100%;
     height: auto;
+}
+
+/* Hide image on screens smaller than 768px */
+@media (max-width: 768px) {
+    .full-width-image {
+        display: none;
+    }
 }
