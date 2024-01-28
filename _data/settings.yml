@@ -16,7 +16,7 @@ menu:
   - name: Home
     link: /
   - name: Blog
-    link: /posts
+    link: /blog
   - name: Resources
     link: /resources
   - name: Services
