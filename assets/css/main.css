@@ -8,7 +8,6 @@ body {
 	margin-bottom: 8em;
 	padding-top: 4.5em;
 	counter-reset: h1counter;
-	
 }
 
 h1 {
@@ -81,8 +80,7 @@ h3:before {
 	color: #ffffff;
 }
 
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus
-	{
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
 	color: #ffffff;
 }
 
@@ -94,8 +92,7 @@ h3:before {
 	color: #ffffff;
 }
 
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus
-	{
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
 	color: #ffffff;
 }
 
@@ -140,8 +137,7 @@ h3:before {
 	border-color: #41424C;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
-	{
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 	background-color: #41424C;
 }
 
@@ -161,7 +157,7 @@ h3:before {
 	color: #ffffff;
 }
 
-@media ( max-width : 767px) {
+@media (max-width: 767px) {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
 		color: #ffffff;
 	}
@@ -181,8 +177,6 @@ h3:before {
 .navbar-align-right {
     float: right;
 }
-
-
 
 /* Custom styles for the site title */
 .site-title-container {
@@ -209,8 +203,9 @@ h3:before {
     .site-title-container {
         display: block; /* Stack title below logo on smaller screens */
         margin-top: 5px; /* Adjust as needed for alignment */
-        text-align: center; /* Center the title */
+        text-align: left; /* Align the title to the left */
         width: 100%;
+        padding-left: 15px; /* Add some padding on the left */
     }
 
     .site-title {
@@ -219,5 +214,6 @@ h3:before {
 
     .navbar-toggle {
         margin-top: 10px; /* Adjust toggle button position */
+        float: right; /* Align the toggle button to the right */
     }
 }
