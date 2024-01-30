@@ -193,6 +193,19 @@ h3:before {
     /* Removed margin-top here to let flexbox handle the alignment */
 }
 
+@media (max-width: 768px) { /* or another breakpoint that suits your design */
+    .logo-title-container {
+        /* Adjust styles for mobile */
+    }
+
+    .site-title-container {
+        margin-left: 5px; /* Adjust as needed for smaller screens */
+    }
+
+    /* Other responsive adjustments */
+}
+
+
 .site-title {
     color: #fff; /* White text */
     font-size: 24px; /* Adjust size as needed */
