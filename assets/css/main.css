@@ -179,11 +179,18 @@ h3:before {
 }
 
 /* Custom styles for the site title */
+
+.logo-title-container {
+    display: flex;
+    align-items: center; /* This will vertically center the children */
+    justify-content: start; /* Aligns children to the start of the container */
+}
+
 .site-title-container {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px; /* Adjust as needed for alignment */
-    margin-top: 15px; /* Adjust as needed for alignment */
+    /* Removed margin-top here to let flexbox handle the alignment */
 }
 
 .site-title {
