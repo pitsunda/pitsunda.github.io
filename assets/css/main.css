@@ -134,15 +134,15 @@ h3:before {
 }
 
 .navbar-default .navbar-toggle {
-	border-color: #41424C;
+	border-color: #fff;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #41424C;
+	background-color: #fff;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #41424C;
+	background-color: #fff;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -214,6 +214,10 @@ h3:before {
     padding: 0; /* Remove default padding */
 }
 
+.site-title-mobile {
+    display: none;
+}
+
 /* Media query for smaller screens */
 @media (max-width: 767px) {
     .navbar-header {
@@ -228,8 +232,14 @@ h3:before {
         padding-left: 15px; /* Add some padding on the left */
     }
 
-    .site-title {
-        font-size: 18px; /* Smaller font size for mobile devices */
+	.site-title {
+        display: none;
+    }
+
+    .site-title-mobile {
+        display: flex;
+		color: #fff;
+		font-size: 40px;
     }
 
     .navbar-toggle {
@@ -244,11 +254,4 @@ h3:before {
 .full-width-image {
     width: 100%;
     height: auto;
-}
-
-/* Hide image on screens smaller than 768px */
-@media (max-width: 768px) {
-    .full-width-image {
-        display: none;
-    }
 }
