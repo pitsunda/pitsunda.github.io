@@ -4,7 +4,7 @@ title: "Reclamation vs. Closure"
 comments: false
 categories: reclamation
 tags: [reclamation, closure, definition]
-github: "https://github.com/pitsunda"
+github: "https://github.com/pitsunda/reclamation-vs-closure"
 ---
 
 <p>
@@ -24,36 +24,10 @@ github: "https://github.com/pitsunda"
 <p>In a previous article I showed how to create a hello world using Camel and Quarkus. Here We will try to do something
     more advanced. Lets start by setting up the project</p>
 
-{% highlight shell %}
-
-mkdir quarkus-kafka-camel-servlet
-
-cd quarkus-kafka-camel-servlet
-
-mvn io.quarkus:quarkus-maven-plugin:0.18.0:create \
--DprojectGroupId=agilabs \
--DprojectArtifactId=quarkus-kafka-camel-servlet \
--DclassName="agilabs.GreetingResource" \
--Dpath="/hello"
-{% endhighlight %}
 
 <p>
     Add the following dependencies to the pom.xml file.
 </p>
-{% highlight xml %}
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
-</dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-camel-core</artifactId>
-</dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-camel-servlet</artifactId>
-</dependency>
-{% endhighlight %}
 
 <h2>Configure Camel</h2>
 
@@ -100,74 +74,6 @@ quarkus.camel.defer-init-phase = true
     Lets set up the routes in the src/main/resources/camel/routes.xml file.
 </p>
 
-{% highlight xml %}
-<?xml version="1.0" encoding="UTF-8" ?>
-<routes xmlns="http://camel.apache.org/schema/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-
-    <route id="receive-kafka-events">
-        <from uri="direct:receive-events"></from>
-        <log message="Received from kafka broker : ${body}"></log>
-    </route>
-
-    <route id="send-kafka-events">
-        <from uri="servlet:send"></from>
-        <log message="Sending"></log>
-        <convertBodyTo type="java.lang.String"></convertBodyTo>
-        <bean ref="smallrye-producer" method="produce(${body})"></bean>
-        <setBody>
-            <constant>Message sent</constant>
-        </setBody>
-    </route>
-</routes>
-{% endhighlight %}
-
-<p>The first route is to consume messages coming from Kafka. We will wire later on a camel producer template to send
-    messages to this route from any other class in application</p>
-<p>The second route listens to http requests coming on the path <strong>http://0.0.0.0:8080/camel/send</strong>.
-    It will use a bean that incorporates an emitter to send messages.
-</p>
-
-<h2>Configure sinks for Kafka topics</h2>
-
-<h3>Application properties</h3>
-
-<pre>
-mp.messaging.incoming.in-events.connector=smallrye-kafka
-mp.messaging.incoming.in-events.topic=events
-mp.messaging.incoming.in-events.value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
-
-mp.messaging.outgoing.out-events.connector=smallrye-kafka
-mp.messaging.outgoing.out-events.topic=events
-mp.messaging.outgoing.out-events.value.serializer=org.apache.kafka.common.serialization.StringSerializer
-</pre>
-
-<p>We will configure a smallrye-kafka connector for incoming messages and outgoing messages</p>
-
-<h3>Create a consumer</h3>
-
-<p>Now lets go ahead and create a consumer with the @Incoming annotation. We will need to inject a Camel
-    ProducerTemplate instance into the consumer so that the message can be forwarded to our Camel direct endpoint</p>
-
-{% highlight java %}
-package agilabs;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import org.apache.camel.ProducerTemplate;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
-
-@ApplicationScoped
-public class Consumer {
-    
-    @Inject
-    ProducerTemplate camelProducer;
-
-    @Incoming("in-events")
-    public void consume(String message) {              
-        camelProducer.sendBody("direct:receive-events", message);
-    }
-}
-{% endhighlight %}
 
 <h3>Create a producer</h3>
 
